@@ -1,0 +1,21 @@
+<main class="container mt-5">
+    <h1 class="align-center">Trending Gifs</h1>
+    <br>
+    <div class="row">
+        {{#each @model as |gif|}}
+        <div class="col mb-3">
+            <div class="card" style="width: 18rem; height: auto;">
+                <img src={{gif.images.preview_gif.url}} class="card-img-top" alt={{gif.title}} />
+                <div class="card-body">
+                    <h5 class="card-title">{{gif.title}}</h5>
+                    <a href={{gif.embed_url}} target="_blank" class="btn btn-primary">See Original</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</main>
+<div>
+    <p>Powered by GIPHY</p>
+</div>
+{{outlet}}
