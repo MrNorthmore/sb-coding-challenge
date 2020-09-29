@@ -1,8 +1,14 @@
 <main class="container mt-5">
     <h1 class="align-center">Trending Gifs</h1>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3" >Search</span>
+        </div>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" {{on 'change' this.searchTrendingGifs }}>
+    </div>
     <br>
     <div class="row">
-        {{#each @model as |gif|}}
+        {{#each this.filteredGifData as |gif|}}
         <div class="col mb-3">
             <div class="card" style="width: 18rem; height: auto;">
                 <img src={{gif.images.preview_gif.url}} class="card-img-top" alt={{gif.title}} />
